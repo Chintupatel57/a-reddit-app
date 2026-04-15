@@ -1,0 +1,59 @@
+        Depolying reddit applincation on Kubernetes :
+            -steps and commands to reproduce:
+- git clone [https://github.com/Ashfaque-9x/a-reddit-clone.git](https://github.com/Ashfaque-9x/a-reddit-clone.git)
+- ls
+- cd a-reddit-clone/
+- ls
+- docker --version
+- sudo apt update
+- sudo apt install ca-certificates curl gnupg lsb-release -y
+- sudo install -m 0755 -d /etc/apt/keyrings
+- sudo curl -fsSL [https://download.docker.com/linux/ubuntu/gpg](https://download.docker.com/linux/ubuntu/gpg) -o /etc/apt/keyrings/docker.asc
+- sudo chmod a+r /etc/apt/keyrings/docker.asc
+- echo   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] [https://download.docker.com/linux/ubuntu](https://download.docker.com/linux/ubuntu)  
+- $(. /etc/os-release && echo "$VERSION\_CODENAME") stable" |   sudo tee /etc/apt/sources.list.d/docker.list \> /dev/null
+- sudo apt update
+- sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+- docker --version
+- docker build . -t shivakumardatla/a-reddit-clone:latest
+- docker login -u shivakumardatla
+- docker push shivakumardatla/a-reddit-clone:latest
+- kubectl version --client
+- apt install kubectl
+- kubectl version --client
+- curl -LO "[https://www.google.com/search?q=https://dl.k8s.io/release/$](https://dl.k8s.io/release/$)(curl -L -s [https://dl.k8s.io/release/stable.txt](https://dl.k8s.io/release/stable.txt))/bin/linux/amd64/kubectl"
+- install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+- kubectl version --client
+- kubectl apply -f Deployment.yml
+- curl -LO [https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64](https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64)
+- sudo install minikube-linux-amd64 /usr/local/bin/minikube
+- minikube start --driver=docker --force
+- kubectl version --client
+- minikube --version
+- nano Deployment.yml
+- kubectl apply -f Deployment.yml
+- kubctl get pods
+- kubectl get pods
+- kubectl get nodes
+- nano service.yml
+- kubectl apply -f service.yml
+- nano service.yml
+- kubectl apply -f service.yml
+- nano service.yml
+- kubectl apply -f service.yml
+- nano service.yml
+- kubectl apply -f service.yml
+- kubectl get svc
+- nano service.yml
+- kubectl apply -f service.yml
+- kubectl get svc
+- kubectl describe pod a-reddit-clone-service
+- kubectl describe pod kubernetes
+- kubectl get endpoints
+- kubectl get pods --show-labels
+- kubectl get svc a-reddit-clone-service -o yaml
+- curl localhost:30007
+- kubectl get pods -o wide
+- kubectl describe svc a-reddit-clone-service
+- minikube service a-reddit-clone-service --url
+- kubectl port-forward svc/a-reddit-clone-service 8080:80 --address 0.0.0.0
